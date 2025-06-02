@@ -1,7 +1,10 @@
 import math
+import time
 
 STARTING_VALUE = 2
-END_VALUE = 100000000000
+END_VALUE = 1000000000000000
+
+# bisherige Ergebnisse: 56, 10.920, 2.118.480
 
 def rechner(x):
     a = 3 * x + 1
@@ -17,6 +20,7 @@ def rechner(x):
 
 results = set()
 div3 = set()
+start_time = time.time()
 
 for i in range(STARTING_VALUE, END_VALUE):
     curr_res = rechner(i)
@@ -31,3 +35,5 @@ for i in range(len(results)):
         div3.add(curr_num)
 
 print(f"Divisible by 3: {div3}")
+end_time = time.time()
+print(f"Laufzeit: {end_time - start_time:.2f} Sekunden")
